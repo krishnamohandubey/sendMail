@@ -4,7 +4,6 @@ import com.mail.emailsend.entity.EmailDetails;
 import com.mail.emailsend.entity.EmailRequest;
 import com.mail.emailsend.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,14 +19,12 @@ public class EmailController {
 
     @PostMapping("/sendMail")
     public String mailMail(@RequestBody EmailDetails details){
-        String status=emailService.sendSimpleMail(details);
-        return status;
+        return emailService.sendSimpleMail(details);
     }
 
     @PostMapping("/sendMailWithAttachment")
     public String mailMailWithAttachment(@RequestBody EmailDetails details){
-        String status=emailService.sendMailWithAttachment(details);
-        return status;
+        return emailService.sendMailWithAttachment(details);
     }
 
     @PostMapping("/sendEmails")
