@@ -22,7 +22,9 @@ spring.mail.password=your-email-password
 spring.mail.properties.mail.smtp.auth=true
 spring.mail.properties.mail.smtp.starttls.enable=true
 
-### API Endpoints
+
+
+## API Endpoints
 
 1. **Send Plain Text Email:**
 
@@ -54,11 +56,11 @@ spring.mail.properties.mail.smtp.starttls.enable=true
       "subject": "Happy Janmashtami"
     }
 
-### Running the Application
+## Running the Application
 
   mvn spring-boot:run
 
-### Testing
+## Testing
 
   curl -X POST http://localhost:9000/api/email/sendMail -H "Content-Type: application/json" -d '{
       "recipient": "abc@gmail.com",
@@ -66,7 +68,7 @@ spring.mail.properties.mail.smtp.starttls.enable=true
       "subject": "Email send using Spring boot"
   }'
 
-### Author
+## Author
   Krishna mohan dubey - https://github.com/krishnamohandubey
 
 
