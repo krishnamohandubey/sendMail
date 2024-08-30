@@ -14,47 +14,60 @@ To run this application, ensure you have the following:
 
 Before running the application, configure your SMTP server details in the `application.properties` file:
 
-```properties
+\```properties
 spring.mail.host=smtp.gmail.com
 spring.mail.port=587
 spring.mail.username=your-email@gmail.com
 spring.mail.password=your-email-password
 spring.mail.properties.mail.smtp.auth=true
 spring.mail.properties.mail.smtp.starttls.enable=true
+\```
 
-
+Replace `your-email@gmail.com` and `your-email-password` with your actual SMTP server credentials.
 
 ## API Endpoints
 
-1. **Send Plain Text Email:**
+### 1. Send Plain Text Email
 
-   POST http://localhost:9000/api/email/sendMail
-    {
-      "recipient": "abc@gmail.com",
-      "msgBody": "Hello, Welcome to the new application of EMail send using spring boot",
-      "subject": "Email send using Spring boot"
-    }
+**Endpoint:** http://localhost:9000/api/email/sendMail
 
-2. **Send Email with Attachment:**
+      **Request Body:**
+      
+      ```json
+      {
+        "recipient": "abc@gmail.com",
+        "msgBody": "Hello, Welcome to the new application of EMail send using spring boot",
+        "subject": "Email send using Spring boot"
+      }
 
-    POST http://localhost:9000/api/email/sendMailWithAttachment
-    {
-      "recipient": "abc@gmail.com",
-      "msgBody": "Hello Everyone, Please find below attachment of new look photo",
-      "subject": "Photo",
-      "attachment": "E:/photo.jpeg"
-    }
+### 2. Send Attachment Email
 
-3. **Send Email Using Template**
+**Endpoint:**  POST http://localhost:9000/api/email/sendMailWithAttachment
 
-    POST http://localhost:9000/api/email/sendEmails
-    {
-      "recipients": [
-        {"email": "rABC@gmail.com", "name": "Abc"},
-        {"email": "Xyz@gmail.com", "name": "XYZ"}
-      ],
-      "subject": "Happy Janmashtami"
-    }
+      **Request Body:**
+      
+      ```json
+      {
+        "recipient": "abc@gmail.com",
+        "msgBody": "Hello Everyone, Please find below attachment of new look photo",
+        "subject": "Photo",
+        "attachment": "E:/photo.jpeg"
+      }
+
+### 3. Send Email with Template
+
+**Endpoint:**  POST http://localhost:9000/api/email/sendEmails
+
+      **Request Body:**
+      
+      ```json
+           {
+        "recipients": [
+          {"email": "rABC@gmail.com", "name": "Abc"},
+          {"email": "Xyz@gmail.com", "name": "XYZ"}
+        ],
+        "subject": "Happy Janmashtami"
+      }
 
 ## Running the Application
 
